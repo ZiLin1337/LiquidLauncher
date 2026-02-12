@@ -79,7 +79,7 @@
         } catch (e) {
             console.error("Failed to request builds:", e);
             error = {
-                message: "Failed to establish connection with LiquidBounce API",
+                message: "无法连接到 LiquidBounce API",
                 error: e
             };
             return;
@@ -168,14 +168,14 @@
 
         try {
             running = true;
-            progressState = { max: 0, value: 0, text: "Starting client..." };
+            progressState = { max: 0, value: 0, text: "正在启动客户端..." };
 
             await authenticate();
             await checkMemory();
             await launchClient();
         } catch (error) {
             console.error("Failed to start client:", error);
-            log = [...log, `Failed to start client: ${error}`];
+            log = [...log, `启动客户端失败: ${error}`];
             running = false;
             logShown = true;
         }
@@ -184,19 +184,19 @@
     async function authenticate() {
         if (options.premium.account) {
             try {
-                progressState.text = "Authenticating client account...";
+                progressState.text = "正在验证客户端账户...";
                 options.premium.account = await invoke("client_account_update", {
                     client,
                     account: options.premium.account
                 });
             } catch (e) {
                 console.error("Failed to authenticate client account:", e);
-                log = [...log, `Failed to authenticate client account: ${e}`];
+                log = [...log, `验证客户端账户失败: ${e}`];
                 options.premium.account = null;
             }
         }
 
-        progressState.text = "Refreshing minecraft session...";
+        progressState.text = "正在刷新 Minecraft 会话...";
         try {
             options.start.account = await invoke("refresh", {
                 client,
@@ -211,12 +211,12 @@
     async function checkMemory() {
         if (options.start.memory < WARNING_MEMORY) {
             const confirmed = await confirm(
-                `You are about to launch the client with less than ${WARNING_MEMORY} MB of memory. This may cause performance issues. Do you want to continue?`
+                `您即将使用少于 ${WARNING_MEMORY} MB 内存启动客户端。这可能会导致性能问题。是否继续？`
             );
 
             if (!confirmed) {
                 running = false;
-                throw new Error("Memory warning declined");
+                throw new Error("内存警告被拒绝");
             }
         }
     }
@@ -293,7 +293,7 @@
         } catch (e) {
             console.error("Failed to request branches:", e);
             error = {
-                message: "Failed to establish connection with LiquidBounce API",
+                message: "无法连接到 LiquidBounce API",
                 error: e
             };
             return;
@@ -374,12 +374,12 @@
                     bannerUrl: "img/banner.png",
                     title: versionState.currentBuild ?
                         `LiquidBounce ${versionState.currentBuild.lbVersion.startsWith("b") ? versionState.currentBuild.lbVersion : `v${versionState.currentBuild.lbVersion}`}` :
-                        "Loading...",
-                    date: versionState.currentBuild?.dateDay || "Loading...",
-                    description: versionState.currentBuild?.changelog || "Loading..."
+                        "加载中...",
+                    date: versionState.currentBuild?.dateDay || "加载中...",
+                    description: versionState.currentBuild?.changelog || "加载中..."
                 }}
-                mcVersion={versionState.currentBuild?.mcVersion || "Loading..."}
-                lbVersion={versionState.currentBuild?.lbVersion || "Loading..."}
+                mcVersion={versionState.currentBuild?.mcVersion || "加载中..."}
+                lbVersion={versionState.currentBuild?.lbVersion || "加载中..."}
                 canLaunch={!!versionState.currentBuild}
                 {running}
                 on:showVersionSelect={() => versionSelectShown = true}

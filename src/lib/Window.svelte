@@ -25,7 +25,7 @@
 
             if (result?.available) {
                 const shouldUpdate = await ask(
-                    "A Launcher update is available. Would you like to install it now?",
+                    "启动器有可用更新。是否立即安装？",
                     "LiquidLauncher"
                 );
 
@@ -58,7 +58,7 @@
             console.error("Failed to load options:", e);
 
             error = {
-                message: "Failed to load launcher options",
+                message: "加载启动器选项失败",
                 error: e
             };
         }
@@ -73,7 +73,7 @@
         } catch (e) {
             console.error("Failed to set up API client:", e);
             error = {
-                message: "Failed to establish connection with LiquidBounce API",
+                message: "无法连接到 LiquidBounce API",
                 error: e
             };
         }
@@ -85,7 +85,7 @@
         } catch (e) {
             // We want to continue allowing the user to use the launcher even 
             // if the system check fails
-            alert("Looks like there is a configuration issue with your system.\n\n" + e);
+            alert("您的系统似乎存在配置问题。\n\n" + e);
         }
     }
 

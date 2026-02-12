@@ -7,26 +7,26 @@
 
     export let client;
     export let options;
-    let activeSettingsTab = "General";
+    let activeSettingsTab = "常规";
 
     const dispatch = createEventDispatcher();
 </script>
 
 <SettingsContainer
-        title="Settings"
+        title="设置"
         on:hideSettings={() => dispatch('hide')}
 >
     <Tabs
-            tabs={["General", "Premium"]}
+            tabs={["常规", "高级"]}
             bind:activeTab={activeSettingsTab}
             slot="tabs"
     />
 
-    {#if activeSettingsTab === "General"}
+    {#if activeSettingsTab === "常规"}
         <GeneralSettings
                 bind:options
         />
-    {:else if activeSettingsTab === "Premium"}
+    {:else if activeSettingsTab === "高级"}
         <PremiumSettings
                 {client}
                 bind:options
