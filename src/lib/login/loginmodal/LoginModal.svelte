@@ -13,13 +13,13 @@
 
     async function handleOfflineLoginClick(e) {
         if (offlineUsername.length > 16 || offlineUsername.length < 1) {
-            alert("Username must be between 1 and 16 characters long.");
+            alert("用户名长度必须在 1 到 16 个字符之间。");
             return;
         }
 
         const usernameRegex = /^[a-zA-Z0-9_]+$/;
         if (!usernameRegex.test(offlineUsername)) {
-            alert("Username can only contain letters, numbers, and underscores.");
+            alert("用户名只能包含字母、数字和下划线。");
             return;
         }
 
@@ -33,10 +33,10 @@
             options.store();
         } catch (err) {
             alert(
-                "Microsoft authentication failed.\n\n" +
+                "微软认证失败。\n\n" +
                  err + "\n\n" +
-                "Should you be unable to resolve this issue, please use the 'Offline' login option " +
-                "and attempt to log in through the client's inbuilt account manager."
+                "如果无法解决此问题，请使用"离线"登录选项，" +
+                "并尝试通过客户端内置的账户管理器登录。"
             );
             cancelMicrosoft();
         }
@@ -53,17 +53,17 @@
 
 <div class="modal">
     {#if !microsoftCode}
-        <div class="title">Log in</div>
+        <div class="title">登录</div>
 
-        <ModalInput placeholder="Username" icon="person" characterLimit={16} bind:value={offlineUsername} />
-        <ModalButton text="Offline login" primary={false} on:click={handleOfflineLoginClick} />
-        <ModalButton text="Microsoft login" primary={true} on:click={handleMicrosoftLoginClick} />
+        <ModalInput placeholder="用户名" icon="person" characterLimit={16} bind:value={offlineUsername} />
+        <ModalButton text="离线登录" primary={false} on:click={handleOfflineLoginClick} />
+        <ModalButton text="微软登录" primary={true} on:click={handleMicrosoftLoginClick} />
     {:else}
-        <div class="title">Microsoft Login</div>
+        <div class="title">微软登录</div>
 
-        <ModalInput placeholder="Microsoft Code" characterLimit={16} icon="lock" bind:value={microsoftCode} />
-        <ModalButton text="Link" primary={true} on:click={() => openUrl("https://microsoft.com/link")} />
-        <ModalButton text="Cancel" primary={false} on:click={cancelMicrosoft} />
+        <ModalInput placeholder="微软代码" characterLimit={16} icon="lock" bind:value={microsoftCode} />
+        <ModalButton text="链接" primary={true} on:click={() => openUrl("https://microsoft.com/link")} />
+        <ModalButton text="取消" primary={false} on:click={cancelMicrosoft} />
     {/if}
 </div>
 

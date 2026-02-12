@@ -35,17 +35,17 @@
 
     <div class="version-selector">
         <ButtonVersion icon="lb" title={lbVersion} subtitle="LiquidBounce" on:click={() => dispatch("showVersionSelect")} />
-        <ButtonVersion icon="mc" title="1.7 - {mcVersion}" subtitle="Minecraft" on:click={() => dispatch("showVersionSelect")} />
+        <ButtonVersion icon="mc" title="1.7 - {mcVersion}" subtitle="我的世界" on:click={() => dispatch("showVersionSelect")} />
     </div> 
 
     {#if running}
         <div class="running-button-wrapper">
-            <ButtonLaunchArea text="Terminate" active={true} on:click={() => dispatch("terminate")} /> 
-            <ButtonLaunchArea text="Log" active={false} on:click={() => dispatch("showClientLog")} />  
+            <ButtonLaunchArea text="终止" active={true} on:click={() => dispatch("terminate")} /> 
+            <ButtonLaunchArea text="日志" active={false} on:click={() => dispatch("showClientLog")} />  
         </div>
     {:else}
         <ButtonLaunchArea
-                text="Launch LiquidBounce"
+                text="启动 LiquidBounce"
                 active={false}
                 disabled={!canLaunch}
                 on:click={() => dispatch("launch")}

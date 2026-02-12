@@ -15,7 +15,7 @@
     async function handleUploadSetting(e) {
         const log = messages.join("");
 
-        if (await confirm("The entire log of this session will be uploaded. It may contain sensitive information like private chat messages. Are you sure you want to proceed?") !== true) {
+        if (await confirm("本次会话的完整日志将被上传。其中可能包含私人聊天消息等敏感信息。您确定要继续吗？") !== true) {
             return;
         }
 
@@ -30,17 +30,17 @@
         const responseData = await response.text();
 
         if (response.status !== 200) {
-            alert(`Failed to upload log: ${responseData}`);
+            alert(`上传日志失败: ${responseData}`);
             return;
         }
 
-        prompt("Your log is available at the following URL: ", responseData);
+        prompt("您的日志可在以下 URL 查看：", responseData);
     }
 </script>
 
 <div class="log" transition:fly={{ y: -10, duration: 200 }}>
     <div class="header">
-        <div class="title">Client log</div>
+        <div class="title">客户端日志</div>
         <button class="button-hide" on:click={() => dispatch("hideClientLog")}>
             <img class="icon" src="img/icon/icon-button-close.svg" alt="hide">
         </button>
@@ -53,8 +53,8 @@
     </div>
 
     <div class="settings">
-        <ButtonSetting text="Upload log" color="#4677FF" on:click={handleUploadSetting}></ButtonSetting>
-        <ToggleSetting title="Auto scroll" disabled={false} bind:value={autoScroll} />
+        <ButtonSetting text="上传日志" color="#4677FF" on:click={handleUploadSetting}></ButtonSetting>
+        <ToggleSetting title="自动滚动" disabled={false} bind:value={autoScroll} />
     </div>
 </div>
 

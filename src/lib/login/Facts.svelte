@@ -3,38 +3,38 @@
 
     const facts = [
         {
-            title: "Blatant or Closet Cheating - You Decide!",
-            description: "LiquidBounce comes with many built-in blatant and closet cheats, making it the perfect all-in-one client.",
+            title: "暴力或隐蔽作弊 - 由您决定！",
+            description: "LiquidBounce 内置多种暴力和隐蔽作弊功能，是完美的全能客户端。",
         },
         {
-            title: "Multi-Version Support",
-            description: "With the integrated version changer, you can easily switch between different Minecraft versions without restarting the game!",
+            title: "多版本支持",
+            description: "通过集成的版本切换器，您可以轻松在不同 Minecraft 版本之间切换，无需重启游戏！",
         },
         {
-            title: "Multi-Server Support",
-            description: "LiquidBounce provides features and bypasses for many different servers."
+            title: "多服务器支持",
+            description: "LiquidBounce 为许多不同的服务器提供功能和绕过方案。"
         },
         {
-            title: "Auto Config System",
-            description: "LiquidBounce's Auto Config System will automatically apply the best settings for you when joining a well-known server.",
+            title: "自动配置系统",
+            description: "LiquidBounce 的自动配置系统会在加入知名服务器时自动为您应用最佳设置。",
         },
         {
-            title: "Customizable",
-            description: "LiquidBounce's UI is fully customizable. You can change out the entire UI to your liking.",
+            title: "可自定义",
+            description: "LiquidBounce 的 UI 完全可自定义。您可以按自己的喜好更改整个界面。",
         },
         {
-            title: "6.000.000 Total Downloads",
+            title: "600 万总下载量",
             description:
-                "LiquidBounce is one of the most popular hacked clients of all time.",
+                "LiquidBounce 是有史以来最受欢迎的作弊客户端之一。",
         },
         {
-            title: "Free & Open Source",
-            description: "LiquidBounce's source code is publicly available.",
+            title: "免费开源",
+            description: "LiquidBounce 的源代码是公开的。",
         },
         {
-            title: "ScriptAPI",
+            title: "脚本 API",
             description:
-                "LiquidBounce's Script API allows users to write their own modules and commands.",
+                "LiquidBounce 的脚本 API 允许用户编写自己的模块和命令。",
         },
     ];
 
